@@ -7,9 +7,6 @@ df = pd.read_csv('vehicles_us_2.csv')
 
 
 
-df.drop_duplicates # Check for duplicates
-df = df.drop_duplicates() # Drop duplicates
-
 df.duplicated().sum() # Check for duplicates
 
 
