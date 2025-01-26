@@ -5,7 +5,28 @@ import plotly.express as px # type: ignore
 # Ensure the dataset path is relative to the root directory.
 df = pd.read_csv('vehicles_us_2.csv')
 
+
+
+df.drop_duplicates # Check for duplicates
+
+df.duplicates().sum() # Check for duplicates
+
+
+
+#Handle missing values for 'model_year' using median
+df['model_year'] = df['model_year'].fillna(df['model_year'].median())
+
+# Fill 'cylinders' with the median within each 'model'
+df['cylinders'] = df.groupby('model')['cylinders'].transform(lambda x: x.fillna(x.median()))
+
+# Fill 'odometer' with the median within each 'model'
+df['odometer'] = df.groupby('model')['odometer'].transform(lambda x: x.fillna(x.median()))
+
+# Fill 'paint_color' with 'Unknown'
+df['paint_color'] = df['paint_color'].fillna('Unknown')
 print(df.dtypes)
+
+
 
  # Convert 'price' column to numeric
 df['price'] = pd.to_numeric(df['price'], errors='coerce')
