@@ -4,7 +4,7 @@ This is a tool to simulate random events, such as viewing different prices based
 
 ## Web App
 
-You can access the web application [here]
+You can access the web application [here](http://localhost:10000)
 
 ## Local Setup Instructions
 
